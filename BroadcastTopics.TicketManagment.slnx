@@ -1,7 +1,10 @@
 <Solution>
   <Folder Name="/src/" />
   <Folder Name="/src/API/" />
-  <Folder Name="/src/Core/" />
+  <Folder Name="/src/Core/">
+    <Project Path="BroadcastTopics.TicketManagment.Application/BroadcastTopics.TicketManagment.Application.csproj" />
+    <Project Path="BroadcastTopics.TicketManagment.Domain/BroadcastTopics.TicketManagment.Domain.csproj" />
+  </Folder>
   <Folder Name="/src/Infrastructure/" />
   <Folder Name="/src/UI/" />
   <Folder Name="/test/" />
