@@ -1,4 +1,4 @@
-﻿namespace BroadcastTopics.TicketManagement.Application.Features.Events
+﻿namespace BroadcastTopics.TicketManagement.Application.Features.Events.Queries.GetEventDetail
 {
     public class CategoryDto
     {

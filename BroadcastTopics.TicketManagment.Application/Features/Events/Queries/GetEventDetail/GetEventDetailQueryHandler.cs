@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using BroadcastTopics.TicketManagement.Application.Contracts.Persistence;
-using BroadcastTopics.TicketManagement.Application.Features.Events;
 using BroadcastTopics.TicketManagement.Domain.Entities;
 using MediatR;
 
-namespace GloboBroadcastTopicsicket.TicketManagement.Application.Features.Events.Queries.GetEventDetail
+namespace BroadcastTopics.TicketManagement.Application.Features.Events.Queries.GetEventDetail
 {
     internal class GetEventDetailQueryHandler : IRequestHandler<GetEventDetailQuery, EventDetailVm>
     {

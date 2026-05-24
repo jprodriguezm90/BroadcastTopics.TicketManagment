@@ -7,5 +7,6 @@ namespace BroadcastTopics.TicketManagement.Application.Contracts.Persistence
 {
     internal interface IEventRepository : IAsyncRepository<Event>
     {
+        Task<bool> IsEventNameAndDateUnique(string name, DateTime eventDate);
     }
 }

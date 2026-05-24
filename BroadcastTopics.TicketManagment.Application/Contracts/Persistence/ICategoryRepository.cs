@@ -7,5 +7,6 @@ namespace BroadcastTopics.TicketManagement.Application.Contracts.Persistence
 {
     internal interface ICategoryRepository : IAsyncRepository<Category>
     {
+        Task<List<Category>> GetCategoriesWithEvents(bool includePassedEvents);
     }
 }
