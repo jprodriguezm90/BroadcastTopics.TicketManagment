@@ -1,7 +1,7 @@
 ﻿
-using BroadcastTopics.TicketManagment.Domain.Common;
+using BroadcastTopics.TicketManagement.Domain.Common;
 
-namespace BroadcastTopics.TicketManagment.Domain.Entities
+namespace BroadcastTopics.TicketManagement.Domain.Entities
 {
     public class Order : AuditableEntity
     {

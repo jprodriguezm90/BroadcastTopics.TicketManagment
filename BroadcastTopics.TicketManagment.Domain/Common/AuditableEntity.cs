@@ -1,4 +1,4 @@
-﻿namespace BroadcastTopics.TicketManagment.Domain.Common
+﻿namespace BroadcastTopics.TicketManagement.Domain.Common
 {
     public class AuditableEntity
     {
