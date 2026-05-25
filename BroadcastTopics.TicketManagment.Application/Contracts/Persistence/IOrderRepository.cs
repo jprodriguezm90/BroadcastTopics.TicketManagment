@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BroadcastTopics.TicketManagement.Application.Contracts.Persistence
 {
-    internal interface IOrderRepository : IAsyncRepository<Order>
+    public interface IOrderRepository : IAsyncRepository<Order>
     {
     }
 }

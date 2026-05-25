@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using BroadcastTopics.TicketManagement.Application.Contracts.Infrastructure;
 using BroadcastTopics.TicketManagement.Application.Contracts.Persistence;
+using BroadcastTopics.TicketManagement.Application.Models.Mail;
 using BroadcastTopics.TicketManagement.Domain.Entities;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -10,13 +12,15 @@ namespace BroadcastTopics.TicketManagement.Application.Features.Events.Commands.
     {
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
+        private readonly IEmailService _emailService;
         private readonly ILogger<CreateEventCommandHandler> _logger;
 
 
-        public CreateEventCommandHandler(IMapper mapper, IEventRepository eventRepository, ILogger<CreateEventCommandHandler> logger)
+        public CreateEventCommandHandler(IMapper mapper, IEventRepository eventRepository, IEmailService emailService, ILogger<CreateEventCommandHandler> logger)
         {
             _mapper = mapper;
             _eventRepository = eventRepository;
+            _emailService = emailService;
             _logger = logger;
         }
 
@@ -32,6 +36,19 @@ namespace BroadcastTopics.TicketManagement.Application.Features.Events.Commands.
 
 
             @event = await _eventRepository.AddAsync(@event);
+
+
+            var email = new Email() { To = "gill@snowball.be", Body = $"A new event was created: {request}", Subject = "A new event was created" };
+
+            try
+            {
+                await _emailService.SendEmail(email);
+            }
+            catch (Exception ex)
+            {
+                //this shouldn't stop the API from doing else so this can be logged
+                _logger.LogError($"Mailing about event {@event.EventId} failed due to an error with the mail service: {ex.Message}");
+            }
 
             return @event.EventId;
         }

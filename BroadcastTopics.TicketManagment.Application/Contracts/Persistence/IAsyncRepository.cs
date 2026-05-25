@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BroadcastTopics.TicketManagement.Application.Contracts.Persistence
 {
-    internal interface IAsyncRepository<T> where T : class
+    public interface IAsyncRepository<T> where T : class
     {
         Task<T> GetByIdAsync(Guid id);
         Task<IReadOnlyList<T>> ListAllAsAsync();
