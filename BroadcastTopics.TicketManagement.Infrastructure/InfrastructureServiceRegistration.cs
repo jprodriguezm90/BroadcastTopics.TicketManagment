@@ -1,6 +1,7 @@
 ﻿using BroadcastTopics.TicketManagement.Application.Contracts.Infrastructure;
 using BroadcastTopics.TicketManagement.Application.Models.Mail;
 using BroadcastTopics.TicketManagement.Infrastructure.Mail;
+using BroadcastTopics.TicketManagement.Infrastructure.FileExport;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -16,6 +17,7 @@ namespace BroadcastTopics.TicketManagement.Infrastructure
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
 
             services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<ICsvExporter, CsvExporter>();
 
             return services;
         }

@@ -5,6 +5,8 @@ using BroadcastTopics.TicketManagement.Application.Features.Events.Queries.GetEv
 using BroadcastTopics.TicketManagement.Application.Features.Events.Queries.GetEventList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using BroadcastTopics.TicketManagement.Application.Features.Events.Queries.GetEventsExport;
+using BroadcastTopics.TicketManagement.Api.Utility;
 
 namespace BroadcastTopics.TicketManagement.Api.Controllers
 {
@@ -63,6 +65,13 @@ namespace BroadcastTopics.TicketManagement.Api.Controllers
             return NoContent();
         }
 
+        [HttpGet("export", Name = "ExportEvents")]
+        [FileResultContentType("text/csv")]
+        public async Task<FileResult> ExportEvents()
+        {
+            var fileDto = await _mediator.Send(new GetEventsExportQuery());
 
+            return File(fileDto.Data, fileDto.ContentType, fileDto.EventExportFileName);
+        }
     }
 }
