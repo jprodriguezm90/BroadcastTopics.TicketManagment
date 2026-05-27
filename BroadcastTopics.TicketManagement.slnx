@@ -1,11 +1,16 @@
 <Solution>
   <Folder Name="/src/" />
-  <Folder Name="/src/API/" />
-  <Folder Name="/src/Core/">
-    <Project Path="BroadcastTopics.TicketManagment.Application/BroadcastTopics.TicketManagement.Application.csproj" />
-    <Project Path="BroadcastTopics.TicketManagment.Domain/BroadcastTopics.TicketManagement.Domain.csproj" />
+  <Folder Name="/src/API/">
+    <Project Path="BroadcastTopics.TicketManagement.Api/BroadcastTopics.TicketManagement.Api.csproj" Id="6981144e-3be7-4d86-b1aa-98dd74a14ad2" />
   </Folder>
-  <Folder Name="/src/Infrastructure/" />
+  <Folder Name="/src/Core/">
+    <Project Path="BroadcastTopics.TicketManagement.Application/BroadcastTopics.TicketManagement.Application.csproj" />
+    <Project Path="BroadcastTopics.TicketManagement.Domain/BroadcastTopics.TicketManagement.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="BroadcastTopics.TicketManagement.Infrastructure/BroadcastTopics.TicketManagement.Infrastructure.csproj" Id="ed7eed8c-8dd4-4a50-a1be-98928c5694f8" />
+    <Project Path="BroadcastTopics.TicketManagement.Persistence/BroadcastTopics.TicketManagement.Persistence.csproj" Id="af66fd4f-87ad-40a8-91ae-3439589e8a6d" />
+  </Folder>
   <Folder Name="/src/UI/" />
   <Folder Name="/test/" />
 </Solution>
