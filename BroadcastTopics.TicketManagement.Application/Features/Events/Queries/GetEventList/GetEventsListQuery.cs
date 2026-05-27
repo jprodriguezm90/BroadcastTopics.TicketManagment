@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BroadcastTopics.TicketManagement.Application.Features.Events.Queries.GetEventList
 {
-    internal class GetEventsListQuery : IRequest<List<EventListVm>>
+    public class GetEventsListQuery : IRequest<List<EventListVm>>
     {
     }
 }

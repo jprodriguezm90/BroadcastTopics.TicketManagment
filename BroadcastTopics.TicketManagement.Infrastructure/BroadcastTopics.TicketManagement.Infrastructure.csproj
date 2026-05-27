@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BroadcastTopics.TicketManagment.Application\BroadcastTopics.TicketManagement.Application.csproj" />
+    <ProjectReference Include="..\BroadcastTopics.TicketManagement.Application\BroadcastTopics.TicketManagement.Application.csproj" />
   </ItemGroup>
 
 </Project>

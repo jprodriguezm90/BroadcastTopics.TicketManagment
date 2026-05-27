@@ -8,7 +8,7 @@ using System.Text;
 
 namespace BroadcastTopics.TicketManagement.Application.Features.Events.Queries.GetEventList
 {
-    internal class GetEventsListQueryHandler : IRequestHandler<GetEventsListQuery, List<EventListVm>>
+    public class GetEventsListQueryHandler : IRequestHandler<GetEventsListQuery, List<EventListVm>>
     {
         private readonly IAsyncRepository<Event> _eventRepository;
         private readonly IMapper _mapper;

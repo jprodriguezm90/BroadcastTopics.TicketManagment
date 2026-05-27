@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BroadcastTopics.TicketManagment.Domain\BroadcastTopics.TicketManagement.Domain.csproj" />
+    <ProjectReference Include="..\BroadcastTopics.TicketManagement.Domain\BroadcastTopics.TicketManagement.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
