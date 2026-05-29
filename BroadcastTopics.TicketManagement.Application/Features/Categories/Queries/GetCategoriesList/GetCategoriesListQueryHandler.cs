@@ -5,7 +5,7 @@ using MediatR;
 
 namespace BroadcastTopics.TicketManagement.Application.Features.Categories.Queries.GetCategoriesList
 {
-    internal class GetCategoriesListQueryHandler : IRequestHandler<GetCategoriesListQuery, List<CategoryListVm>>
+    public class GetCategoriesListQueryHandler : IRequestHandler<GetCategoriesListQuery, List<CategoryListVm>>
     {
         private readonly IAsyncRepository<Category> _categoryRepository;
         private readonly IMapper _mapper;

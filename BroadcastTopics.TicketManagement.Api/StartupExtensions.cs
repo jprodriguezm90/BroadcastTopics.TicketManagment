@@ -1,4 +1,6 @@
-﻿using BroadcastTopics.TicketManagement.Application;
+﻿using BroadcastTopics.TicketManagement.Api.Services;
+using BroadcastTopics.TicketManagement.Application;
+using BroadcastTopics.TicketManagement.Application.Contracts;
 using BroadcastTopics.TicketManagement.Infrastructure;
 using BroadcastTopics.TicketManagement.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +14,10 @@ namespace BroadcastTopics.TicketManagement.Api
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceServices(builder.Configuration);
+
+            builder.Services.AddScoped<ILoggedInUserService, LoggedInUserService>();
+
+            builder.Services.AddHttpContextAccessor();
 
             builder.Services.AddControllers();
 

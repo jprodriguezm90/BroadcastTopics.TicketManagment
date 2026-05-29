@@ -12,5 +12,8 @@
     <Project Path="BroadcastTopics.TicketManagement.Persistence/BroadcastTopics.TicketManagement.Persistence.csproj" Id="af66fd4f-87ad-40a8-91ae-3439589e8a6d" />
   </Folder>
   <Folder Name="/src/UI/" />
-  <Folder Name="/test/" />
+  <Folder Name="/test/">
+    <Project Path="BroadcastTopics.TicketManagement.Application.UnitTests/BroadcastTopics.TicketManagement.Application.UnitTests.csproj" Id="8999c63c-64e9-42ea-982f-a528a8ce22d1" />
+    <Project Path="BroadcastTopics.TicketManagment.Persistence.IntegrationTest/BroadcastTopics.TicketManagement.Persistence.IntegrationTest.csproj" Id="302ea74c-f1d2-4963-91d9-bd18be7c6881" />
+  </Folder>
 </Solution>
