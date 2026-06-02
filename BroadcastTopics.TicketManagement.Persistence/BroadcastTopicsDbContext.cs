@@ -1,4 +1,5 @@
-﻿using BroadcastTopics.TicketManagement.Domain.Common;
+﻿using BroadcastTopics.TicketManagement.Application.Contracts;
+using BroadcastTopics.TicketManagement.Domain.Common;
 using BroadcastTopics.TicketManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
@@ -10,18 +11,18 @@ namespace BroadcastTopics.TicketManagement.Persistence
 {
     public class BroadcastTopicsDbContext : DbContext
     {
-        //private readonly ILoggedInUserService? _loggedInUserService;
+        private readonly ILoggedInUserService? _loggedInUserService;
 
         public BroadcastTopicsDbContext(DbContextOptions<BroadcastTopicsDbContext> options)
            : base(options)
         {
         }
-        /*
+        
         public BroadcastTopicsDbContext(DbContextOptions<BroadcastTopicsDbContext> options, ILoggedInUserService loggedInUserService)
             : base(options)
         {
             _loggedInUserService = loggedInUserService;
-        }*/
+        }
 
         public DbSet<Event> Events { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -202,11 +203,11 @@ namespace BroadcastTopics.TicketManagement.Persistence
                 {
                     case EntityState.Added:
                         entry.Entity.CreatedDate = DateTime.Now;
-                        //entry.Entity.CreatedBy = _loggedInUserService.UserId;
+                        entry.Entity.CreatedBy = _loggedInUserService.UserId;
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModifiedDate = DateTime.Now;
-                        //entry.Entity.LastModifiedBy = _loggedInUserService.UserId;
+                        entry.Entity.LastModifiedBy = _loggedInUserService.UserId;
                         break;
                 }
             }

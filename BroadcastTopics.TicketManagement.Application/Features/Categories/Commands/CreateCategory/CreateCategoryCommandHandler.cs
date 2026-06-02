@@ -5,7 +5,7 @@ using MediatR;
 
 namespace BroadcastTopics.TicketManagement.Application.Features.Categories.Commands.CreateCategory
 {
-    internal class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CreateCategoryCommandResponse>
+    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommand, CreateCategoryCommandResponse>
     {
         private readonly IAsyncRepository<Category> _categoryRepository;
         private readonly IMapper _mapper;

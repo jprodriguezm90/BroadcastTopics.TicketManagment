@@ -20,6 +20,7 @@ namespace BroadcastTopics.TicketManagement.Api.Controllers
 
         [HttpGet("all", Name = "GetAllCategories")]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<ActionResult<List<CategoryListVm>>> GetAllCategories()
         {
             var dtos = await _mediator.Send(new GetCategoriesListQuery());
@@ -29,6 +30,7 @@ namespace BroadcastTopics.TicketManagement.Api.Controllers
         [HttpGet("allwithevents", Name = "GetCategoriesWithEvents")]
         [ProducesDefaultResponseType]
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [Authorize]
         public async Task<ActionResult<List<CategoryEventListVm>>> GetCategoriesWithEvents(bool includeHistory)
         {
             GetCategoriesListWithEventsQuery getCategoriesListWithEventsQuery = new GetCategoriesListWithEventsQuery() { IncludeHistory = includeHistory };
