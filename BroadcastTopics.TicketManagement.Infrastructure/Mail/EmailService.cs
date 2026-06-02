@@ -1,5 +1,6 @@
 ﻿using BroadcastTopics.TicketManagement.Application.Contracts.Infrastructure;
 using BroadcastTopics.TicketManagement.Application.Models.Mail;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -12,10 +13,12 @@ namespace BroadcastTopics.TicketManagement.Infrastructure.Mail
     public class EmailService : IEmailService
     {
         public EmailSettings _emailSettings { get; }
+        public ILogger<EmailService> _logger { get; }
 
-        public EmailService(IOptions<EmailSettings> mailSettings)
+        public EmailService(IOptions<EmailSettings> mailSettings, ILogger<EmailService> logger)
         {
             _emailSettings = mailSettings.Value;
+            _logger = logger;
         }
 
         public async Task<bool> SendEmail(Email email)
@@ -35,8 +38,12 @@ namespace BroadcastTopics.TicketManagement.Infrastructure.Mail
             var sendGridMessage = MailHelper.CreateSingleEmail(from, to, subject, emailBody, emailBody);
             var response = await client.SendEmailAsync(sendGridMessage);
 
+            _logger.LogInformation("Email sent");
+
             if (response.StatusCode == System.Net.HttpStatusCode.Accepted || response.StatusCode == System.Net.HttpStatusCode.OK)
                 return true;
+
+            _logger.LogError("Email sending failed");
 
             return false;
         }

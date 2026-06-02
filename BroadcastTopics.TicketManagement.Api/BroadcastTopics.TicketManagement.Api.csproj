@@ -8,11 +8,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BroadcastTopics.TicketManagement.Application\BroadcastTopics.TicketManagement.Application.csproj" />
+    <ProjectReference Include="..\BroadcastTopics.TicketManagement.Identity\BroadcastTopics.TicketManagement.Identity.csproj" />
     <ProjectReference Include="..\BroadcastTopics.TicketManagement.Infrastructure\BroadcastTopics.TicketManagement.Infrastructure.csproj" />
     <ProjectReference Include="..\BroadcastTopics.TicketManagement.Persistence\BroadcastTopics.TicketManagement.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.8" />
+    
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -22,11 +26,17 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MediatR" Version="14.1.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.7" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="10.1.7" />
+    <PackageReference Include="Serilog" Version="4.3.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="10.0.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="10.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="10.2.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Middleware\" />
     <Folder Include="Utility\" />
   </ItemGroup>
 
